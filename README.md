@@ -1,7 +1,7 @@
 # Roadmap
 Roadmap for the club.
 
-The club's main focus is **analytic prompt engineering** **systematic semantics analysis of prompts and answers**. 
+The club's main focus is **analytic prompt engineering** and **systematic semantics analysis of prompts and answers**. 
 
 
 ## Analytics
