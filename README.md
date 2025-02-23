@@ -3,7 +3,12 @@ Roadmap for the club.
 
 The club's main focus is **analytic prompt engineering** **systematic semantics analysis of prompts and answers**. 
 
+
+## Analytics
+
 The roadmap and development pipeline of the analytics team is as follows:
+
+### Labelists
 
 ```mermaid
 graph TD;
@@ -41,3 +46,35 @@ graph TD;
     end
 
 ```
+
+### Data Scientists
+
+```mermaid
+graph TD;
+    subgraph Analytical Process
+        A1["Receives DB Updates"] -->|Preprocess Dataset| B1["Preprocess Dataset"]
+        
+        subgraph Training Process
+            B1 -->|Fetch Weights from Weights DB| C1["Fetch Weights from SQLite DB"]
+            
+            C1 -->|Load vec1 Weights & Prompts| D1["Train MLP on vec1 (Prompt Analyzer)"]
+            D1 -->|Store Updated Weights| E1["Store Weights for Prompts"]
+            
+            C1 -->|Load vec2 Weights & Answers| D2["Train MLP on vec2 (Answer Analyzer)"]
+            D2 -->|Store Updated Weights| E2["Store Weights for Answers"]
+        end
+        
+        B1 -->|SQLite API via Python| F1["SQLite API"]
+        
+        subgraph Analysis
+            F1 -->|Fetch Model & Data| G1["Fetch Model and Prompt/Answer Set"]
+            G1 -->|Run Prompt/Answer Science Computations| H1["Run Prompt Science Computations (3.1)"]
+            G1 -->|Run Answer Science Computations| H2["Run Answer Science Computations (3.2)"]
+        end
+    end
+
+```
+
+## Semantic Analysis
+
+!TODO
